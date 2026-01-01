@@ -33,3 +33,9 @@ Use this guide to keep contributions consistent and easy to review. The reposito
 - Reference issues in commit bodies or PR descriptions when relevant.
 - PRs should summarize the change set, list verification steps (`make test`, manual checks), and attach screenshots for UI changes.
 - Keep diffs focused; open drafts early for feedback rather than batching large changes.
+
+## Git Credentials Handling
+- Use the repo-local credential helper already configured: `git config credential.helper 'store --file=.git-credentials'`.
+- The token comes from `.env` (`GITHUB_TOKEN`) and is written to `.git-credentials`. That file is ignored; never add credentials to the repo.
+- Do not create or use `.git/credentials`; keep tokens only in `.git-credentials` (local) or a user-approved global store when available.
+- If home-directory writes are blocked, keep using `.git-credentials` in the repo root; rotate the token if compromised.
